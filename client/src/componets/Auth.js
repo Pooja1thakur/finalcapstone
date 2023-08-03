@@ -22,7 +22,7 @@ const Auth = () => {
   };
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`http://localhost:5000/api/user/${type}`, {
+      .post(`https://backend-2mbt.onrender.com/api/user/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
@@ -39,14 +39,15 @@ const Auth = () => {
     console.log(inputs);
     if (isSignup) {
       sendRequest("signup")
-        .then((data) => localStorage.setItem("userId", data.user._id))
+        .then((data) => localStorage.setItem("userId", data?.user._id))
         .then(() => dispath(authActions.login()))
         .then(() => naviagte("/blogs"));
     } else {
-      sendRequest()
-        .then((data) => localStorage.setItem("userId", data.user._id))
-        .then(() => dispath(authActions.login()))
-        .then(() => naviagte("/blogs"));
+      // sendRequest()
+      //   .then((data) => localStorage.setItem("userId", data?.user._id))
+      //   .then(() => dispath(authActions.login()))
+      //   .then(() => naviagte("/blogs"));
+      console.log("err")
     }
   };
   return (

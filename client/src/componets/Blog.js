@@ -22,7 +22,7 @@ import {
     };
     const deleteRequest = async () => {
       const res = await axios
-        .delete(`http://localhost:5000/api/blog/${id}`)
+        .delete(`https://backend-2mbt.onrender.com/api/blog/${id}`)
         .catch((err) => console.log(err));
       const data = await res.data;
       return data;
@@ -37,13 +37,16 @@ import {
         {" "}
         <Card
           sx={{
-            width: "40%",
+            width: "60%",
+            
             margin: "auto",
             mt: 2,
             padding: 2,
             boxShadow: "5px 5px 10px #ccc",
             ":hover": {
+              transition:"0.10s",
               boxShadow: "10px 10px 20px #ccc",
+              
             },
           }}
         >
@@ -70,8 +73,10 @@ import {
             title={title}
           />
           <CardMedia
+          
             component="img"
-            height="194"
+            height="350"
+          
             image={imageURL}
             alt="Paella dish"
           />
