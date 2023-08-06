@@ -5,9 +5,10 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState();
   const sendRequest = async () => {
     const res = await axios
-      .get("https://backend-2mbt.onrender.com/api/blog")
+      .get("https://back-8ohh.onrender.com/api/blog")
       .catch((err) => console.log(err));
     const data = await res.data;
+    console.log(data)
     return data;
   };
   useEffect(() => {
@@ -16,6 +17,7 @@ const Blogs = () => {
   console.log(blogs);
   return (
     <div>
+      
       {blogs &&
         blogs.map((blog, index) => (
           <Blog
